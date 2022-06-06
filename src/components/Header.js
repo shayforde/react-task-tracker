@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-const handleClick = () => {
-  console.log("yea");
-};
+import Button from "./Button";
 
 const Header = ({ title }) => {
+  const onClick = () => {
+    console.log("Clicked");
+  };
   return (
     <div>
       <h1>{title}</h1>
+      <Button onClick={onClick} />
+      <Button text="Add" color="green" onClick={onClick} />
     </div>
   );
 };
