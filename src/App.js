@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import { useState } from "react";
 
+
+// after adding email and name
 function App({ title }) {
   const [tasks, setTasks] = useState([
     {
