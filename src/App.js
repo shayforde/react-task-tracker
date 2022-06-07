@@ -1,8 +1,7 @@
-import React, { Component } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 import { useState } from "react";
-
 
 // after adding email and name
 function App({ title }) {
@@ -27,11 +26,32 @@ function App({ title }) {
     },
   ]);
 
+  // delete task
+  const deleteTask = (id) => {
+    //console.log("deleteTask id = ", id);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  // Toggle Reminder
+  const toggleReminder = (id) => {
+    console.log("toggleReminder", id);
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      )
+    );
+  };
+
   return (
     <div className="container">
       <h1>{title}</h1>
-      <Header title="away we go" />
-      <Tasks tasks={tasks} />
+      <Header />
+      <AddTask />
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
+      ) : (
+        "No tasks left"
+      )}
     </div>
   );
 }

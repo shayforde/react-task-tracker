@@ -7,9 +7,8 @@ const Header = ({ title }) => {
     console.log("Clicked");
   };
   return (
-    <div>
-      <h1>{title}</h1>
-      <Button onClick={onClick} />
+    <div className="header">
+      <h1 >{title}</h1>
       <Button text="Add" color="green" onClick={onClick} />
     </div>
   );
