@@ -1,14 +1,12 @@
-import React from "react";
+import { FaTimes } from "react-icons/fa";
 
-
-const Task = (tasks) => {
+const Task = ({ task }) => {
   return (
     <div className="task">
       <h3>
-        {tasks.map((task) => (
-          <Task key={task.id} task={task} />
-        ))}
+        {task.text} <FaTimes style={{ color: "red", cursor: "pointer" }} />
       </h3>
+      <p>{task.day}</p>
     </div>
   );
 };
