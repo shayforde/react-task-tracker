@@ -5,6 +5,8 @@ import { useState } from "react";
 
 // after adding email and name
 function App({ title }) {
+  const [showAddTask, setShowAddTask] = useState(false)
+  
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -28,7 +30,10 @@ function App({ title }) {
 
   // Add Task
   const addTask = (task) => {
-    console.log(task);
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
+    console.log(newTask);
+    setTasks([...tasks, newTask]);
   };
 
   // delete task
